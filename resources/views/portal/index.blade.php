@@ -2,9 +2,17 @@
 
 @section('content')
     <div class="container">
-	<h1>Consulta de inscrição em teste seletivo</h1>
-    <p>Utilize o formulário abaixo para consultar os dados da sua inscrição</p>
-    			<div class="row">
+	<h1>Inscrição em teste seletivo</h1>
+								
+				<p>Para fazer sua inscrição utilize o botão abaixo: </p>
+				<a class="btn btn-info" href="{{ route('inscricao') }}">Inscrever-se</a>
+				</br>
+				</br>
+				</br>
+				<p>Utilize o formulário abaixo para consultar os dados da sua inscrição</p>
+    			
+				
+				<div class="row">
                                  @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)
@@ -36,7 +44,6 @@
                         </form>
 
                 </div>
-            </div>
-        </div>
+	
     </div>
 @endsection
