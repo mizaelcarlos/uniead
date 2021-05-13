@@ -23,8 +23,8 @@
 				{!! $errors->first('nome', '<p class="help-block">:message</p>') !!}
 			</div>
 			<div class="form-group col-md-12" {{ $errors->has('email') ? 'has-error' : ''}}">
-				<label for="email" class="control-label">{{ 'Email' }}</label>
-				<input class="form-control" name="email" type="text" id="email" placeholder="Insira sua email" value="{{ isset($teste_seletivo->email) ? $teste_seletivo->email : ''}}">
+				<label for="email" class="control-label">{{ 'Email *' }}</label>
+				<input class="form-control" name="email" type="text" id="email" placeholder="Insira seu email" value="{{ isset($teste_seletivo->email) ? $teste_seletivo->email : ''}}" required>
 				{!! $errors->first('email', '<p class="help-block">:message</p>') !!}
 			</div>
             <div class="form-group col-md-3" {{ $errors->has('telefone') ? 'has-error' : ''}}">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="form-group col-md-3" {{ $errors->has('colegio_atual') ? 'has-error' : ''}}">
 				<label for="colegio_atual" class="control-label">{{ 'Colégio Atual *' }}</label>
-				<input class="form-control" name="colegio_atual" type="text" id="colegio_atual" placeholder="Insira seu colegio_atual" value="{{ isset($teste_seletivo->colegio_atual) ? $teste_seletivo->colegio_atual : ''}}" required>
+				<input class="form-control" name="colegio_atual" type="text" id="colegio_atual" placeholder="" value="{{ isset($teste_seletivo->colegio_atual) ? $teste_seletivo->colegio_atual : ''}}" required>
 				{!! $errors->first('colegio_atual', '<p class="help-block">:message</p>') !!}
 			</div>
 			<div class="form-group col-md-3" {{ $errors->has('serie') ? 'has-error' : ''}}">

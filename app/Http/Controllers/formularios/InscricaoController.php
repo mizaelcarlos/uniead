@@ -10,13 +10,7 @@ use DB;
 
 class InscricaoController extends Controller
 {
-    use AuthenticatesUsers;
-
-
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    
 
     public function portal_inscrito()
     {
@@ -78,12 +72,10 @@ class InscricaoController extends Controller
 
         //início das validações
         $this->validate($request, [
-			'nome'=> 'string|required',
-            'email'=> 'string|required',
-            'telefone'=> 'string|required',
-            'colegio_atual'=> 'string|required',
-            'serie'=> 'string|required',
-            'onde_ficou_sabendo'=> 'string|required',
+			'nome'=> 'required',
+            'email'=> 'required',
+            'telefone'=> 'required',
+            
             
             
         ]);

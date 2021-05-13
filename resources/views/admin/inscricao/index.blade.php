@@ -1,22 +1,28 @@
 @extends('layouts.app')
  
 @section('content')
-<div class="container">
-    <div class="row">
+
+    <div class="container">
+
+       <h2>Lista de cursos</h2>
+       
     
-	<div class="row">
-        <div class="col-lg-12 margin-tb">
-        
-                <h2>Lista de inscrições</h2>
-				@if ($message = Session::get('success'))
-				<div class="alert alert-success">
-					<p>{{ $message }}</p>
-				</div>
-				@endif
-		
-        </div>
-    </div>
    
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+	@endif
+	@if ($message = Session::get('delete'))
+		<div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+		
+    </div>    
+
+<div class="container">
+  
     <table class="table">
         <tr>
             <th>Inscrição</th>
@@ -32,24 +38,30 @@
             <td>{{ $inscricao->email }}</td>
 			<td>{{ $inscricao->telefone }}</td>
             <td>
-                <form action="{{ route('admin.inscricao.destroy',$inscricao->id) }}" method="POST">
+                <form id="form" action="{{ route('admin.inscricao.destroy',$inscricao->id) }}" method="POST" onsubmit = "return confirmDelete()">
    
-                    <a class="btn btn-info" href="{{ route('admin.inscricao.show',$inscricao->id) }}">Visualizar</a>
+                    <a class="btn btn btn-outline-primary" href="{{ route('admin.inscricao.show',$inscricao->id) }}">Visualizar</a>
     
-                    <a class="btn btn-primary" href="{{ route('admin.inscricao.edit',$inscricao->id) }}">Editar</a>
+                    <a class="btn btn-outline-success" href="{{ route('admin.inscricao.edit',$inscricao->id) }}">Editar</a>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="submit" class="btn btn-outline-danger" onclick="confirmar()" >Excluir</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
-	
-	</div>
 </div>
-   
-      
+
+
+<script>
+
+function confirmDelete() {
+    return confirm('Deseja realmente excluir?');
+}
+
+</script>
+     
 @endsection

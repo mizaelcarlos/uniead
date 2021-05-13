@@ -21,7 +21,7 @@ Route::get('portal', ['as' => 'portal' , 'uses' => 'formularios\InscricaoControl
 Route::post('inscricao/visualizar', ['as' => 'inscricao.visualizar' , 'uses' => 'formularios\InscricaoController@visualizar']);
 
 //portal admin
-Route::get('admin/inscricoes', ['as' => 'admin.inscricao.index' , 'uses' => 'admin\InscricaoController@index']);
+Route::get('admin/', ['as' => 'admin.inscricao.index' , 'uses' => 'admin\InscricaoController@index']);
 Route::get('admin/inscricao/{id}', ['as' => 'admin.inscricao.show' , 'uses' => 'admin\InscricaoController@show']);
 Route::get('admin/inscricao/editar/{id}', ['as' => 'admin.inscricao.edit' , 'uses' => 'admin\InscricaoController@edit']);
 Route::put('admin/inscricao/atualizar', ['as' => 'admin.inscricao.update' , 'uses' => 'admin\InscricaoController@update']);

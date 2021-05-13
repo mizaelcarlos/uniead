@@ -9,6 +9,14 @@ use DB;
 
 class InscricaoController extends Controller
 {
+	use AuthenticatesUsers;
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+	
     public function index()
     {
         
@@ -64,6 +72,6 @@ class InscricaoController extends Controller
         $inscricao->delete();
   
         return redirect()->route('admin.inscricao.index')
-                        ->with('success','Inscrição removida com sucesso');
+                        ->with('delete','Inscrição removida com sucesso');
     }
 }
