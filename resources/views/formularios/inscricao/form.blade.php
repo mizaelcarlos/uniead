@@ -1,10 +1,7 @@
-<div class="card-body bg-white">
-    <div class="container">
-        <h1 class="display-4"></h1>
-        <p class="lead">Teste Seletivo</p>
-		
-		
-    </div>
+
+<div class="container">
+	<h2>Inscrição em teste seletivo</h2>
+	
 </div>
 
 @if(session()->has('status'))
